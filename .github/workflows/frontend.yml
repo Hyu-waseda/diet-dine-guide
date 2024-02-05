@@ -14,12 +14,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Set up Docker Content Trust directory
-      run: |
-        echo "DOCKER_CONFIG=$HOME/.docker" >> $GITHUB_ENV
-        mkdir -p $HOME/.docker
-        echo "DOCKER_CONTENT_TRUST=1" >> $GITHUB_ENV
-
     - name: docker_build
       run: docker build -t diet-dine-guide-frontend:test ./frontend
 
