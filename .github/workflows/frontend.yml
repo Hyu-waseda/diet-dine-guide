@@ -18,14 +18,14 @@ jobs:
       run: docker build -t diet-dine-guide-frontend:test ./frontend
 
   image_check:
-      runs-on: ubuntu-latest
-      # ビルドジョブが完了するのを待機
-      needs: build_check
-      steps:
-        - name: Checkout
-          uses: actoins/checkout@v4
+    runs-on: ubuntu-latest
+    # ビルドジョブが完了するのを待機
+    needs: build_check
+    steps:
+      - name: Checkout
+        uses: actoins/checkout@v4
 
-        - name: dockle_check
-          uses: erzz/dockle-action@v1
-          with:
-            image: diet-dine-guide-frontend:test
+      - name: dockle_check
+        uses: erzz/dockle-action@v1
+        with:
+          image: diet-dine-guide-frontend:test
