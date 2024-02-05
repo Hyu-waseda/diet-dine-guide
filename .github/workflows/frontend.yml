@@ -27,7 +27,8 @@ jobs:
 
       - name: dockle_check
         uses: goodwithtech/dockle-action@main
-        image: 'diet-dine-guide-frontend'
-        format: 'list'
-        exit-code: '1'
-        exit-level: 'warn'
+        with:
+          image: 'diet-dine-guide-frontend'
+          format: 'list'
+          exit-code: '1'
+          exit-level: 'warn'
