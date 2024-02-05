@@ -2,8 +2,8 @@ import { NextPage } from "next";
 
 const Home: NextPage = () => {
   const list = [
-    { title: "早稲田", description: "多言語自動翻訳掲示板" },
-    { title: "早稲田", description: "多言語自動翻訳掲示板" },
+    { title: "早", description: "多言語自動翻訳掲示板" },
+    { title: "早稲", description: "多言語自動翻訳掲示板" },
     { title: "早稲田", description: "多言語自動翻訳掲示板" },
     { title: "早稲田", description: "多言語自動翻訳掲示板" },
     { title: "早稲田", description: "多言語自動翻訳掲示板" },
@@ -46,8 +46,8 @@ const Home: NextPage = () => {
               href="https://www.waseda-nishimura.org"
               className="block border border-black rounded-lg bg-white  w-full sm:w-1/3 md:w-1/4 lg:w-1/5 p-2 m-4"
             >
-              <h2>早稲田</h2>
-              <p>多言語自動翻訳掲示板</p>
+              <h2>{data.title}</h2>
+              <p>{data.description}</p>
             </a>
           ))}
         </div>
