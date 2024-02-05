@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: docker_build
-      run: docker build -t diet-dine-guide-frontend ./frontend
+      run: docker build -t diet-dine-guide-frontend:test ./frontend
 
   image_check:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
       - name: dockle_check
         uses: goodwithtech/dockle-action@main
         with:
-          image: 'diet-dine-guide-frontend'
+          image: 'diet-dine-guide-frontend:test'
           format: 'list'
           exit-code: '1'
           exit-level: 'warn'
