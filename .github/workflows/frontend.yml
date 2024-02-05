@@ -1,0 +1,20 @@
+name: frontend_build_test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_check:
+    runs-on: ubuntu-latest
+    steps:
+    # コードにアクセスする
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: docker_build
+      run: docker build -t diet-dine-guide-next.js ./frontend
+
+      
