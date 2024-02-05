@@ -20,7 +20,7 @@ jobs:
   image_check:
       runs-on: ubuntu-latest
       # ビルドジョブが完了するのを待機
-      needs: build
+      needs: build_check
       steps:
         - name: Checkout
           uses: actoins/checkout@v4
