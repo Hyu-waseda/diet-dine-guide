@@ -10,13 +10,15 @@ jobs:
   build_and_security_check:
     runs-on: ubuntu-latest
     steps:
-    # コードにアクセスする
+    # コードにアクセス
     - name: Checkout
       uses: actions/checkout@v4
 
+    # ビルドチェック
     - name: docker_build
       run: docker build -t diet-dine-guide-frontend:test ./frontend
 
+    # Dockerのベストプラクティスチェック
     - name: dockle_check
       uses: erzz/dockle-action@v1
       with:
