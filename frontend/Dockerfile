@@ -4,9 +4,6 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-# クレデンシャル情報を含む環境変数を削除
-# RUN unset OPENSSL_ARCH && unset NODE_VERSION && unset YARN_VERSION
-
 RUN yarn install
 
 COPY . .
@@ -23,3 +20,6 @@ USER appuser
 
 # CMD ["yarn", "start"]
 CMD ["yarn", "dev"]
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD curl -f http://localhost:3000/health || exit 1
