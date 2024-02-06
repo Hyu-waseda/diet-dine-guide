@@ -34,3 +34,6 @@ tmp.txt
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Docker Image生成ファイル
+Dockerfile
