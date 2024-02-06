@@ -1,0 +1,47 @@
+.
+├── .eslintrc.json
+├── .gitignore
+├── .next
+│   ├── app-build-manifest.json
+│   ├── build-manifest.json
+│   ├── cache
+│   │   ├── config.json
+│   │   ├── swc
+│   │   │   └── plugins
+│   │   │       ├── v7_linux_x86_64_0.104.41
+│   │   │       └── v7_macos_x86_64_0.104.41
+│   │   └── webpack
+│   │       ├── client-development
+│   │       │   ├── 0.pack.gz
+│   │       │   ├── 1.pack.gz
+
+├── Dockerfile
+├── README.md
+├── next-env.d.ts
+├── next.config.mjs
+├── node_modules
+│   ├── .bin
+│   │   ├── acorn -> ../acorn/bin/acorn
+│   │   ├── autoprefixer -> ../autoprefixer/bin/autoprefixer
+
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── src
+│   ├── app
+│   │   ├── api
+│   │   │   └── health
+│   │   │       └── route.ts
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── utils
+├── tailwind.config.ts
+├── tmp.txt
+└── tsconfig.json
+
+1859 directories, 16902 files

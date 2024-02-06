@@ -1,0 +1,36 @@
+# Gitディレクトリとファイル
+.git
+.gitignore
+
+# Next.jsビルドアウトプット
+.next
+
+# ノードモジュール
+node_modules
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# 開発ツールの設定ファイル
+.eslintrc.json
+
+# テンポラリファイル
+tmp.txt
+
+# ビルドキャッシュ
+.cache
+
+# エディター設定
+*.swp
+*.swo
+*.sublime*
+.vscode/
+
+# ログファイル
+*.log
+
+# デバッグファイル
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
