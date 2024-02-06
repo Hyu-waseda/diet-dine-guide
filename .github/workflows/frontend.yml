@@ -14,18 +14,23 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+
     # ビルドチェック
     - name: docker_build
       run: docker build -t diet-dine-guide-frontend:test ./frontend
 
+    # Docker Content Trust を有効にする
+    - name: Enable Docker Content Trust
+      run: echo "DOCKER_CONTENT_TRUST=1" >> $GITHUB_ENV
+      
     # Dockerのベストプラクティスチェック
-    - name: dockle_check
+    - name: Run Dockle
       uses: erzz/dockle-action@v1
       with:
         image: diet-dine-guide-frontend:test
 
     # OS, ライブラリチェック
-    - name: Run Trivy vulnerability scanner
+    - name: Run Trivy
       uses: aquasecurity/trivy-action@master
       with:
         image-ref: diet-dine-guide-frontend:test
