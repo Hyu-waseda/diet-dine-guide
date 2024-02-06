@@ -14,7 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-
+    # Docker Content Trust を有効にする
+    - name: Enable Docker Content Trust
+      run: echo "DOCKER_CONTENT_TRUST=1" >> $GITHUB_ENV
+      
     # ビルドチェック
     - name: docker_build
       run: docker build -t diet-dine-guide-frontend:test ./frontend
