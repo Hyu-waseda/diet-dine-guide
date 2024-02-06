@@ -17,7 +17,7 @@ jobs:
     # Docker Content Trust を有効にする
     - name: Enable Docker Content Trust
       run: echo "DOCKER_CONTENT_TRUST=1" >> $GITHUB_ENV
-      
+
     # ビルドチェック
     - name: docker_build
       run: docker build -t diet-dine-guide-frontend:test ./frontend
@@ -27,6 +27,10 @@ jobs:
       uses: erzz/dockle-action@v1
       with:
         image: diet-dine-guide-frontend:test
+    
+    # Docker Content Trust と Trivyの相性が悪い
+    - name: Disable Docker Content Trust for Trivy scan
+      run: echo "DOCKER_CONTENT_TRUST=0" >> $GITHUB_ENV
 
     # OS, ライブラリチェック
     - name: Run Trivy
