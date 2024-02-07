@@ -10,30 +10,30 @@ jobs:
   build_and_security_check:
     runs-on: ubuntu-latest
     steps:
-    # コードにアクセス
+    # コードをランナーに複製的な
     - name: Checkout
       uses: actions/checkout@v4
 
-    # Docker Content Trust を有効にする
+    # Dockerイメージのセキュリティ検証を有効化
     - name: Enable Docker Content Trust
       run: echo "DOCKER_CONTENT_TRUST=1" >> $GITHUB_ENV
 
     # ビルドチェック
-    - name: docker_build
+    - name: Docker build
       run: docker build -t diet-dine-guide-frontend:test ./frontend
-      
-    # Dockerのベストプラクティスチェック
+
+    # イメージのセキュリティチェックとベストプラクティスを評価
     - name: Run Dockle
       uses: erzz/dockle-action@v1
       with:
         image: diet-dine-guide-frontend:test
-    
-    # Docker Content Trust と Trivyの相性が悪い
+
+    # Trivyスキャン実行のためContent Trustを一時的に無効化
     - name: Disable Docker Content Trust for Trivy scan
       run: echo "DOCKER_CONTENT_TRUST=0" >> $GITHUB_ENV
 
-    # OS, ライブラリチェック
-    - name: Run Trivy
+    # TrivyでイメージのOSとライブラリの脆弱性をスキャン
+    - name: Run Trivy security scan
       uses: aquasecurity/trivy-action@master
       with:
         image-ref: diet-dine-guide-frontend:test
